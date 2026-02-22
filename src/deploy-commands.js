@@ -41,7 +41,7 @@ const rest = new REST().setToken(DISCORD_TOKEN);
         // Update guild commands via Discord API
         const data = await rest.put(Routes.applicationGuildCommands(CLIENT_ID, GUILD_ID), { body: commands });
 
-        console.log(`Succesfuly reloaded ${data.lenght} application (/) commands.`);
+        console.log(`Succesfuly reloaded ${data.length} application (/) commands.`);
     } catch (error) {
         console.error(error);
     }
