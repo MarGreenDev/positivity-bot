@@ -3,6 +3,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const { Client, GatewayIntentBits, Collection, Events, MessageFlags } = require('discord.js');
+const { readConfig} = require('./storage');
 
 require('dotenv').config();
 
@@ -16,7 +17,8 @@ client.on("clientReady", () => {    // Runs when the bot is connected to Discord
     console.log("Bot is online");
 })
 
-client.login(botToken);
+client.serverConfig = readConfig();
+console.log("Loaded server config:", client.serverConfig);
 
 client.commands = new Collection();
 
@@ -61,3 +63,5 @@ client.on(Events.InteractionCreate, async (interaction) => {
         }
     }
 });
+
+client.login(botToken);

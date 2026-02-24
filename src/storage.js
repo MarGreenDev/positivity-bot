@@ -26,6 +26,7 @@ function setChannel(guildId, channelId) {
     writeConfig(updatedObj);
 }
 
+// export functions so setChannel.js command file can use it
 module.exports = {
     readConfig,
     writeConfig,
